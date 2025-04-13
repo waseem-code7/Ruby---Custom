@@ -42,3 +42,14 @@ The following methods have been added to the `Array` class:
 
 - **`bsearch_minimum { |x| block }`**  
   Finds the *minimum* element that satisfies the given condition using binary search.
+
+### 🔧 Functional Utilities
+
+- **`custom_map { |x| block }`**  
+  Returns a new array with the results of running the block once for every element.
+
+- **`custom_filter { |x| block }`**  
+  Returns a new array containing only the elements for which the block returns `true`.
+
+- **`custom_reduce(initial = nil) { |acc, x| block }`**  
+  Combines all elements by applying a binary operation, specified by the block. An optional initial value can be passed.
