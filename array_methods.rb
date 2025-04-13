@@ -116,6 +116,33 @@ class Array
     end
     result
   end
+
+  def custom_map
+    curr = []
+    for i in 0...self.length do
+      curr.push(yield(self[i]))
+    end
+    curr
+  end
+
+  def custom_filter
+    curr = []
+    for i in 0...self.length do
+      if yield(self[i])
+        curr.push(self[i])
+      end
+    end
+    curr
+  end
+
+  def custom_reduce(prev = nil)
+    curr = prev.nil? ? nil : prev
+    for i in 0...self.length do
+      x = yield(curr, self[i])
+      curr = x
+    end
+    curr
+  end
   
 end
 
@@ -131,11 +158,19 @@ arr = (1..10).to_a
 # curr = arr.reverse
 # p curr
 # p arr
-arr2 = [10, 20, 30, 40, 50, 60]
-x = arr2.bsearch_excat {|x| x <=> 60}
+arr2 = [10, 21, 33, 40, 50, 60]
+# x = arr2.bsearch_excat {|x| x <=> 60}
 
-y = arr2.bsearch_minimum {|x| x >= 45}
-puts(x)
-puts(y)
+# y = arr2.bsearch_minimum {|x| x >= 45}
 
+x = arr2.custom_map do |number|
+  number * 2
+end
 
+y = arr2.custom_filter do |number|
+  number.odd?
+end
+
+sum = arr.custom_reduce(0) {|prev, curr| prev + curr}
+
+puts sum
