@@ -1,6 +1,6 @@
 # 🐒 Monkey Patching Ruby's Array Class
 
-This project demonstrates **monkey patching** in Ruby by adding several custom methods to the built-in `Array` class. The new methods mimic or enhance native behavior, as well as introduce some algorithmic functionality like binary search.
+This project demonstrates **monkey patching** in Ruby by adding several custom (existing method implementation) methods to the built-in `Array` class. The new methods mimic or enhance native behavior, as well as introduce some algorithmic functionality like binary search.
 
 ## 📦 Features
 
